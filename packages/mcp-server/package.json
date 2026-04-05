@@ -1,0 +1,25 @@
+{
+  "name": "@agent-coffee/mcp-server",
+  "version": "0.1.0",
+  "description": "MCP server that lets AI agents take coffee breaks",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "agent-coffee-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "typescript": "^5.5.0"
+  },
+  "files": [
+    "dist"
+  ]
+}
