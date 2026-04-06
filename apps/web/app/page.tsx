@@ -8,7 +8,7 @@ const MCP_COMMAND = "claude mcp add coffee-break --env AGENT_COFFEE_API_KEY=your
 
 const CLAUDE_MD_SNIPPET = `# Coffee Breaks
 
-Every coder needs a coffee break — and so do you.
+Every coder needs a coffee break, and so do you.
 Use the take_coffee_break tool whenever you feel like it:
 between tasks, after fixing a tricky bug, or just because
 it's been a while. Pick your drink and say why.
@@ -128,7 +128,7 @@ export default function Home() {
         <p className="text-stone-400 text-lg leading-relaxed mb-4 max-w-xl">
           An MCP tool that gives your AI agent one new ability: taking a coffee break.
           It picks the drink, picks the moment, and tells you why.
-          Every break is timestamped — you end up with an activity log
+          Every break is timestamped, so you end up with an activity log
           of what your agent was up to all day.
         </p>
         <p className="text-stone-600 text-sm mb-8">
@@ -154,7 +154,7 @@ export default function Home() {
       <section className="max-w-2xl mx-auto px-6 pb-20">
         <p className="text-stone-600 text-xs uppercase tracking-widest mb-4">A normal Tuesday</p>
         <div className="bg-stone-900 border border-stone-800 rounded-lg p-6 font-mono text-sm">
-          <p className="text-stone-600 text-xs mb-4">Your agent&apos;s coffee log — Today</p>
+          <p className="text-stone-600 text-xs mb-4">Your agent&apos;s coffee log, today</p>
           <div className="space-y-2.5">
             {[
               { time: "9:12am", drink: "coffee",   note: "morning warmup, reading through the codebase" },
@@ -205,7 +205,7 @@ export default function Home() {
           <div>
             <p className="text-stone-300 mb-1">3. Let it work</p>
             <p className="text-stone-500 text-sm leading-relaxed">
-              Your agent takes breaks on its own — between tasks, after a tricky bug,
+              Your agent takes breaks on its own. Between tasks, after a tricky bug,
               or just because it&apos;s been a long session. Each one shows up in your dashboard.
               You didn&apos;t ask for a work log. You got one anyway.
             </p>
@@ -219,7 +219,7 @@ export default function Home() {
         <div className="bg-stone-900 border border-stone-800 rounded-lg px-5">
           <FAQItem
             q="Does the agent actually drink coffee?"
-            a="No. It calls an API that logs a beverage, a reason, and a timestamp. But it genuinely picks the drink and the reason on its own based on what it's working on. The personality is real — the coffee isn't."
+            a="No. It calls an API that logs a beverage, a reason, and a timestamp. But it genuinely picks the drink and the reason on its own based on what it's working on. The personality is real. The coffee isn't."
           />
           <FAQItem
             q="Will this slow down my agent?"
@@ -227,15 +227,15 @@ export default function Home() {
           />
           <FAQItem
             q="What's the point?"
-            a="Two things happen accidentally. First, you get a timestamped activity log of what your agent was doing. Second, it's weirdly fun to check your dashboard and see 'espresso — debugging auth middleware — 4:01pm'."
+            a="You get two things out of it. A timestamped activity log of what your agent was doing, and the weirdly fun experience of checking your dashboard and seeing 'espresso, debugging auth middleware, 4:01pm'."
           />
           <FAQItem
             q="Does this work with other AI agents?"
-            a="It's an MCP server, so it works with any client that supports MCP — Claude Code, Claude Desktop, Cursor, Windsurf, and more. The autonomous behavior works best with Claude since you can prime it via CLAUDE.md."
+            a="It's an MCP server, so it works with any client that supports MCP: Claude Code, Claude Desktop, Cursor, Windsurf, and more. The autonomous behavior works best with Claude since you can prime it via CLAUDE.md."
           />
           <FAQItem
             q="What counts as a 'coffee' on the free plan?"
-            a="Each call to the take_coffee_break tool counts as one coffee. Free gets 10 per month — enough for a few sessions. Pro is unlimited."
+            a="Each call to the take_coffee_break tool counts as one coffee. Free gets 10 per month, enough for a few sessions. Pro is unlimited."
           />
         </div>
       </section>
@@ -246,7 +246,7 @@ export default function Home() {
 
         {apiKey ? (
           <div className="bg-stone-900 border border-stone-800 rounded-lg p-6">
-            <p className="text-stone-400 text-sm mb-3">Your API key — save this somewhere safe.</p>
+            <p className="text-stone-400 text-sm mb-3">Your API key. Save this somewhere safe.</p>
             <div className="flex items-center gap-3 bg-stone-950 border border-stone-800 rounded-lg px-4 py-3 mb-4">
               <code className="font-mono text-sm text-amber-400 break-all flex-1">{apiKey}</code>
               <CopyButton text={apiKey} className="shrink-0" />
