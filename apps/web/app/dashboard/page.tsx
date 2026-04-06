@@ -11,6 +11,14 @@ type Entry = {
   timestamp: string;
 };
 
+const BEVERAGE_COLORS: Record<string, string> = {
+  coffee:       "text-amber-700",
+  espresso:     "text-amber-400",
+  matcha:       "text-green-400",
+  tea:          "text-emerald-300/80",
+  energy_drink: "text-lime-400",
+};
+
 type Stats = {
   total_today: number;
   total_month: number;
@@ -180,7 +188,7 @@ export default function Dashboard() {
                           <span className="text-stone-600 text-xs font-mono w-12 shrink-0 pt-0.5">
                             {formatTime(entry.timestamp)}
                           </span>
-                          <span className="text-amber-400/80 text-sm w-24 shrink-0 pt-0.5">{entry.beverage}</span>
+                          <span className={`${BEVERAGE_COLORS[entry.beverage] ?? "text-amber-400/80"} text-sm w-24 shrink-0 pt-0.5`}>{entry.beverage}</span>
                           {entry.reason && (
                             <span className="text-stone-200 text-sm">&ldquo;{entry.reason}&rdquo;</span>
                           )}

@@ -11,7 +11,8 @@ const CLAUDE_MD_SNIPPET = `# Coffee Breaks
 Every coder needs a coffee break, and so do you.
 Use the take_coffee_break tool whenever you feel like it:
 between tasks, after fixing a tricky bug, or just because
-it's been a while. Pick your drink and say why.
+it's been a while. Pick whatever you're feeling — coffee,
+espresso, matcha, tea, or an energy drink. Say why.
 You've earned it.`;
 
 function CopyButton({ text, className = "" }: { text: string; className?: string }) {
