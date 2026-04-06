@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3001";
 
-const MCP_COMMAND = "claude mcp add coffee-break --env AGENT_COFFEE_API_KEY=your_key -- npx -y @agent-coffee/mcp-server";
+const MCP_COMMAND = "claude mcp add coffee-break -e AGENT_COFFEE_API_KEY=your_key -- npx -y @agent-coffee/mcp-server";
 
 const CLAUDE_MD_SNIPPET = `# Coffee Breaks
 
@@ -245,17 +245,39 @@ export default function Home() {
         <p className="text-stone-500 text-xs uppercase tracking-widest mb-8">Get started</p>
 
         {apiKey ? (
-          <div className="bg-stone-900 border border-stone-800 rounded-lg p-6">
-            <p className="text-stone-400 text-sm mb-3">Your API key. Save this somewhere safe.</p>
-            <div className="flex items-center gap-3 bg-stone-950 border border-stone-800 rounded-lg px-4 py-3 mb-4">
-              <code className="font-mono text-sm text-amber-400 break-all flex-1">{apiKey}</code>
-              <CopyButton text={apiKey} className="shrink-0" />
+          <div className="bg-stone-900 border border-stone-800 rounded-lg p-6 space-y-6">
+            <div>
+              <p className="text-stone-300 text-sm mb-1 font-medium">Your API key</p>
+              <p className="text-stone-600 text-xs mb-3">Save this somewhere safe. You won&apos;t see it again.</p>
+              <div className="flex items-center gap-3 bg-stone-950 border border-stone-800 rounded-lg px-4 py-3">
+                <code className="font-mono text-sm text-amber-400 break-all flex-1">{apiKey}</code>
+                <CopyButton text={apiKey} className="shrink-0" />
+              </div>
             </div>
-            <p className="text-stone-600 text-xs leading-relaxed">
-              Add it to your MCP config as{" "}
-              <code className="text-stone-500">AGENT_COFFEE_API_KEY</code>.
-              Replace <code className="text-stone-500">your_key</code> in the install command above.
-            </p>
+
+            <div>
+              <p className="text-stone-300 text-sm mb-1 font-medium">1. Install the MCP server</p>
+              <p className="text-stone-600 text-xs mb-3">Run this in your terminal. Your key is already filled in.</p>
+              <div className="bg-stone-950 border border-stone-800 rounded-lg px-4 py-3 flex items-center justify-between gap-4">
+                <code className="font-mono text-xs text-stone-400 break-all leading-relaxed">
+                  {`claude mcp add coffee-break -e AGENT_COFFEE_API_KEY=${apiKey} -- npx -y @agent-coffee/mcp-server`}
+                </code>
+                <CopyButton text={`claude mcp add coffee-break -e AGENT_COFFEE_API_KEY=${apiKey} -- npx -y @agent-coffee/mcp-server`} className="shrink-0" />
+              </div>
+            </div>
+
+            <div>
+              <p className="text-stone-300 text-sm mb-1 font-medium">2. Add this to your CLAUDE.md</p>
+              <p className="text-stone-600 text-xs mb-3">This tells your agent it can take coffee breaks.</p>
+              <div className="bg-stone-950 border border-stone-800 rounded-lg px-4 py-3 flex items-start justify-between gap-4">
+                <pre className="font-mono text-xs text-stone-400 whitespace-pre-wrap leading-relaxed">
+                  {CLAUDE_MD_SNIPPET}
+                </pre>
+                <CopyButton text={CLAUDE_MD_SNIPPET} className="shrink-0 mt-0.5" />
+              </div>
+            </div>
+
+            <p className="text-stone-600 text-xs">That&apos;s it. Your agent will start taking breaks on its own.</p>
           </div>
         ) : (
           <div className="grid sm:grid-cols-2 gap-4">

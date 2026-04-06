@@ -5,8 +5,16 @@ import { useSearchParams } from "next/navigation";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3001";
 
+const CLAUDE_MD_SNIPPET = `# Coffee Breaks
+
+Every coder needs a coffee break, and so do you.
+Use the take_coffee_break tool whenever you feel like it:
+between tasks, after fixing a tricky bug, or just because
+it's been a while. Pick your drink and say why.
+You've earned it.`;
+
 function mcpCommand(key: string) {
-  return `claude mcp add coffee-break --env AGENT_COFFEE_API_KEY=${key} -- npx -y @agent-coffee/mcp-server`;
+  return `claude mcp add coffee-break -e AGENT_COFFEE_API_KEY=${key} -- npx -y @agent-coffee/mcp-server`;
 }
 
 function CopyButton({ text }: { text: string }) {
@@ -121,8 +129,16 @@ function SuccessContent() {
           </div>
         </div>
 
+        <div>
+          <p className="text-stone-500 text-xs uppercase tracking-widest mb-3">Add to your CLAUDE.md</p>
+          <div className="flex items-start gap-3 bg-stone-900 border border-stone-800 rounded-lg px-4 py-3">
+            <pre className="font-mono text-xs text-stone-400 whitespace-pre-wrap leading-relaxed flex-1">{CLAUDE_MD_SNIPPET}</pre>
+            <CopyButton text={CLAUDE_MD_SNIPPET} />
+          </div>
+        </div>
+
         <p className="text-stone-600 text-sm">
-          Run that command, then ask Claude to take a coffee break.
+          That&apos;s it. Your agent will start taking breaks on its own.
         </p>
       </div>
     </section>

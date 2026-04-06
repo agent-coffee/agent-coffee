@@ -12,8 +12,6 @@ import { requireAuth, type AuthedRequest } from "../middleware/auth.js";
 
 export const coffeeRouter: IRouter = Router();
 
-const FREE_TIER_LIMIT = 10;
-
 const MESSAGES: Record<string, string[]> = {
   coffee:       ["Fresh drip coffee. Classic.", "Black coffee, no nonsense.", "House blend. Good enough."],
   espresso:     ["Double shot espresso. Let's go.", "Espresso pulled. Concentrated chaos.", "Short, strong, ready."],
@@ -45,23 +43,22 @@ coffeeRouter.post("/", requireAuth, async (req, res) => {
 
   const { beverage, reason } = parsed.data;
 
-  // Check free tier limit
+  // Rate limit: free tier capped at 10 requests per calendar month
   if (user.plan === "free") {
-    const now = new Date();
-    const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
-
+    const startOfMonth = new Date(new Date().getFullYear(), new Date().getMonth(), 1);
     const [{ count }] = await db`
       SELECT COUNT(*)::int AS count
       FROM coffee_logs
       WHERE user_id = ${user.id}
         AND timestamp >= ${startOfMonth}
     `;
-
-    if (count >= FREE_TIER_LIMIT) {
+    if (count >= 10) {
       res.status(429).json({
-        error: "Free tier limit reached.",
-        limit: FREE_TIER_LIMIT,
-        upgrade_url: "https://agent-coffee.com/#pricing",
+        error: "Monthly limit reached",
+        message: "Free tier is limited to 10 coffee breaks per month. Upgrade to Pro for unlimited breaks.",
+        limit: 10,
+        used: count,
+        resets_at: new Date(new Date().getFullYear(), new Date().getMonth() + 1, 1),
       });
       return;
     }

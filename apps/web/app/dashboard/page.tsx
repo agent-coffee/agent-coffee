@@ -176,13 +176,13 @@ export default function Dashboard() {
                     <p className="text-stone-600 text-xs uppercase tracking-widest mb-3">{group.label}</p>
                     <div className="bg-stone-900 border border-stone-800 rounded-lg divide-y divide-stone-800">
                       {group.items.map((entry, i) => (
-                        <div key={i} className="flex gap-4 px-5 py-3 items-baseline">
-                          <span className="text-stone-600 text-xs font-mono w-12 shrink-0">
+                        <div key={i} className="flex gap-4 px-5 py-3 items-start">
+                          <span className="text-stone-600 text-xs font-mono w-12 shrink-0 pt-0.5">
                             {formatTime(entry.timestamp)}
                           </span>
-                          <span className="text-stone-300 text-sm w-24 shrink-0">{entry.beverage}</span>
+                          <span className="text-amber-400/80 text-sm w-24 shrink-0 pt-0.5">{entry.beverage}</span>
                           {entry.reason && (
-                            <span className="text-stone-500 text-sm truncate">&ldquo;{entry.reason}&rdquo;</span>
+                            <span className="text-stone-200 text-sm">&ldquo;{entry.reason}&rdquo;</span>
                           )}
                         </div>
                       ))}
