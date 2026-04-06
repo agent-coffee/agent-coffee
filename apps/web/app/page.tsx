@@ -92,7 +92,7 @@ export default function Home() {
         </p>
         <a
           href="#pricing"
-          className="inline-block bg-stone-800 hover:bg-stone-700 transition-colors rounded-lg px-5 py-2.5 text-sm text-stone-300"
+          className="inline-block bg-amber-800 hover:bg-amber-700 transition-colors rounded-lg px-5 py-2.5 text-sm text-stone-100"
         >
           Get a key →
         </a>
@@ -100,6 +100,7 @@ export default function Home() {
 
       {/* Demo */}
       <section className="max-w-2xl mx-auto px-6 pb-16">
+        <p className="text-stone-600 text-xs uppercase tracking-widest mb-4">What your agent was up to</p>
         <div className="bg-stone-900 border border-stone-800 rounded-lg p-6 font-mono text-sm">
           <p className="text-stone-600 mb-4 text-xs">Today — 5 coffees</p>
           <div className="space-y-2.5">
