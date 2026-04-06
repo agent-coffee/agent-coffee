@@ -1,8 +1,8 @@
 # Agent Coffee
 
-An MCP server that lets AI agents take coffee breaks.
+An MCP server that lets AI agents take coffee breaks. Every break is timestamped with a reason — so you end up with a running log of what your agent was doing and when.
 
-It does nothing useful. That's the point. Well, almost — every break is timestamped, so you accidentally end up with a log of when your agent was working and what it was doing. Think of it as a desk plant for your AI that also keeps a diary.
+Slightly absurd. Accidentally useful.
 
 ## Install
 
