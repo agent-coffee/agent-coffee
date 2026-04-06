@@ -132,6 +132,13 @@ function SuccessContent() {
 export default function Success() {
   return (
     <main className="min-h-screen bg-stone-950 text-stone-100">
+      <nav className="max-w-2xl mx-auto px-6 py-6 flex items-center justify-between">
+        <a href="/" className="text-stone-400 text-sm font-medium hover:text-stone-200 transition-colors">Agent Coffee</a>
+        <div className="flex items-center gap-5 text-sm">
+          <a href="/dashboard" className="text-stone-600 hover:text-stone-400 transition-colors">Dashboard</a>
+          <a href="https://github.com/agent-coffee/agent-coffee" target="_blank" rel="noopener noreferrer" className="text-stone-600 hover:text-stone-400 transition-colors">GitHub</a>
+        </div>
+      </nav>
       <Suspense
         fallback={
           <section className="max-w-2xl mx-auto px-6 pt-24">

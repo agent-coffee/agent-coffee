@@ -96,7 +96,14 @@ export default function Dashboard() {
 
   return (
     <main className="min-h-screen bg-stone-950 text-stone-100">
-      <div className="max-w-2xl mx-auto px-6 pt-16 pb-24">
+      <nav className="max-w-2xl mx-auto px-6 py-6 flex items-center justify-between">
+        <a href="/" className="text-stone-400 text-sm font-medium hover:text-stone-200 transition-colors">Agent Coffee</a>
+        <div className="flex items-center gap-5 text-sm">
+          <a href="/dashboard" className="text-stone-400">Dashboard</a>
+          <a href="https://github.com/agent-coffee/agent-coffee" target="_blank" rel="noopener noreferrer" className="text-stone-600 hover:text-stone-400 transition-colors">GitHub</a>
+        </div>
+      </nav>
+      <div className="max-w-2xl mx-auto px-6 pt-6 pb-24">
 
         {/* Header */}
         <div className="flex items-center justify-between mb-12">
