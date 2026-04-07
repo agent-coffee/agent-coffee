@@ -131,7 +131,7 @@ export default function Dashboard() {
 
         {/* API key form — shown when not authenticated */}
         {!activeKey && (
-          <div className="bg-stone-900 border border-stone-800 rounded-lg p-6">
+          <div className="bg-stone-800 border border-stone-700 rounded-lg p-6">
             <p className="text-stone-400 text-sm mb-4">Enter your API key to view your coffee activity.</p>
             <form onSubmit={handleSubmit} className="flex gap-3">
               <input
@@ -158,17 +158,17 @@ export default function Dashboard() {
         {stats && (
           <>
             <div className="flex gap-4 mb-10">
-              <div className="flex-1 bg-stone-900 border border-stone-800 rounded-lg px-5 py-4">
-                <p className="text-stone-500 text-xs uppercase tracking-widest mb-1">Today</p>
+              <div className="flex-1 bg-stone-800 border border-stone-700 rounded-lg px-5 py-4">
+                <p className="text-stone-400 text-xs uppercase tracking-widest mb-1">Today</p>
                 <p className="text-3xl font-semibold">{stats.total_today}</p>
-                <p className="text-stone-600 text-xs mt-0.5">
+                <p className="text-stone-500 text-xs mt-0.5">
                   {stats.total_today === 1 ? "coffee" : "coffees"}
                 </p>
               </div>
-              <div className="flex-1 bg-stone-900 border border-stone-800 rounded-lg px-5 py-4">
-                <p className="text-stone-500 text-xs uppercase tracking-widest mb-1">This month</p>
+              <div className="flex-1 bg-stone-800 border border-stone-700 rounded-lg px-5 py-4">
+                <p className="text-stone-400 text-xs uppercase tracking-widest mb-1">This month</p>
                 <p className="text-3xl font-semibold">{stats.total_month}</p>
-                <p className="text-stone-600 text-xs mt-0.5">
+                <p className="text-stone-500 text-xs mt-0.5">
                   {stats.total_month === 1 ? "coffee" : "coffees"}
                 </p>
               </div>
@@ -181,11 +181,11 @@ export default function Dashboard() {
               <div className="space-y-8">
                 {groups.map((group) => (
                   <div key={group.label}>
-                    <p className="text-stone-600 text-xs uppercase tracking-widest mb-3">{group.label}</p>
-                    <div className="bg-stone-900 border border-stone-800 rounded-lg divide-y divide-stone-800">
+                    <p className="text-stone-400 text-xs uppercase tracking-widest mb-3">{group.label}</p>
+                    <div className="bg-stone-800 border border-stone-700 rounded-lg divide-y divide-stone-700">
                       {group.items.map((entry, i) => (
                         <div key={i} className="flex gap-4 px-5 py-3 items-start">
-                          <span className="text-stone-600 text-xs font-mono w-12 shrink-0 pt-0.5">
+                          <span className="text-stone-500 text-xs font-mono w-12 shrink-0 pt-0.5">
                             {formatTime(entry.timestamp)}
                           </span>
                           <span className={`${BEVERAGE_COLORS[entry.beverage] ?? "text-amber-400/80"} text-sm w-24 shrink-0 pt-0.5`}>{entry.beverage}</span>

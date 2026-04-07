@@ -154,8 +154,8 @@ export default function Home() {
       {/* Demo — autonomous behavior */}
       <section className="max-w-2xl mx-auto px-6 pb-20">
         <p className="text-stone-600 text-xs uppercase tracking-widest mb-4">A normal Tuesday</p>
-        <div className="bg-stone-900 border border-stone-800 rounded-lg p-6 font-mono text-sm">
-          <p className="text-stone-600 text-xs mb-4">Your agent&apos;s coffee log, today</p>
+        <div className="bg-stone-800 border border-stone-700 rounded-lg p-6 font-mono text-sm">
+          <p className="text-stone-500 text-xs mb-4">Your agent&apos;s coffee log, today</p>
           <div className="space-y-2.5">
             {[
               { time: "9:12am", drink: "coffee",   note: "morning warmup, reading through the codebase" },
@@ -166,9 +166,9 @@ export default function Home() {
               { time: "5:30pm", drink: "espresso", note: "one more deploy" },
             ].map((entry) => (
               <div key={entry.time} className="flex gap-4 text-stone-400">
-                <span className="text-stone-600 w-16 shrink-0">{entry.time}</span>
+                <span className="text-stone-500 w-16 shrink-0">{entry.time}</span>
                 <span className="text-stone-300 w-20 shrink-0">{entry.drink}</span>
-                <span className="text-stone-500 truncate">&ldquo;{entry.note}&rdquo;</span>
+                <span className="text-stone-400">&ldquo;{entry.note}&rdquo;</span>
               </div>
             ))}
           </div>
@@ -184,7 +184,7 @@ export default function Home() {
         <div className="space-y-8">
           <div>
             <p className="text-stone-300 mb-3">1. Install the MCP server</p>
-            <div className="bg-stone-900 border border-stone-800 rounded-lg px-4 py-3 flex items-center justify-between gap-4">
+            <div className="bg-stone-800 border border-stone-700 rounded-lg px-4 py-3 flex items-center justify-between gap-4">
               <code className="font-mono text-xs text-stone-400 break-all leading-relaxed">
                 {MCP_COMMAND}
               </code>
@@ -194,9 +194,9 @@ export default function Home() {
           <div>
             <p className="text-stone-300 mb-3">2. Tell your agent it can take breaks</p>
             <p className="text-stone-500 text-sm leading-relaxed mb-3">
-              Add this to your project&apos;s <code className="text-stone-400 bg-stone-900 px-1 py-0.5 rounded text-xs">CLAUDE.md</code> or system prompt:
+              Add this to your project&apos;s <code className="text-stone-400 bg-stone-800 px-1 py-0.5 rounded text-xs">CLAUDE.md</code> or system prompt:
             </p>
-            <div className="bg-stone-900 border border-stone-800 rounded-lg px-4 py-3 flex items-start justify-between gap-4">
+            <div className="bg-stone-800 border border-stone-700 rounded-lg px-4 py-3 flex items-start justify-between gap-4">
               <pre className="font-mono text-xs text-stone-400 whitespace-pre-wrap leading-relaxed">
                 {CLAUDE_MD_SNIPPET}
               </pre>
